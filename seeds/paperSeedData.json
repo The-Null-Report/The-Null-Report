@@ -3,18 +3,24 @@
 		"title": "Physics paper",
 		"author": "Albert Einstein",
 		"subject": "physics",
-		"reviewed": true
+		"reviewed": true,
+		"published_by": "Albert Einstein",
+		"publisher_id": "2"
 	},
 	{
 		"title":"Chemistry paper",
 		"author": "John B. Goodenough",
 		"subject": "chemistry",
-		"reviewed": "false"
+		"reviewed": false,
+		"published_by": "John B. Goodenough",
+		"publisher_id": "3"
 	},
 	{
 		"title":"Biology paper",
-		"author": "Charles Darwin",
+		"author": "Oliver Sacks",
 		"subject": "biology",
-		"reviewed": false
+		"reviewed": false,
+		"published_by": "Oliver Sacks",
+		"publisher_id": "4"
 	}
 ]
