@@ -33,10 +33,10 @@
 		"areaOfStudy": "chemistry"
 	},
 	{
-		"fName": "Charles",
-		"lName": "Darwin",
-		"email": "CDarwin@HMSBeagle.com",
-		"password": "finchbeak",
+		"fName": "Oliver",
+		"lName": "Sacks",
+		"email": "mywifeis@hat.com",
+		"password": "brains!!!",
 		"reviewer": false,
 		"admin": false,
 		"submitted": null,

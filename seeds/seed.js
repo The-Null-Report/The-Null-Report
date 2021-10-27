@@ -14,13 +14,15 @@ const seedDatabase = async () => {
 	
 	console.log(users);
 
-	for (const paper of paperData) {
-		await Paper.create({
-			...paper,
-			published_by: users.fName + " " + users.lName, 
-			publisher_id: users.id
-		});
-	}
+	const paper = await Paper.bulkCreate(paperData);
+
+	// for (const paper of paperData) {
+	// 	await Paper.create({
+	// 		...paper,
+	// 		published_by: users.fName + " " + users.lName, 
+	// 		publisher_id: users.id
+	// 	});
+	// }
 
 	process.exit(0);
 };
