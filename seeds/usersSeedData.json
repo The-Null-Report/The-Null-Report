@@ -1,7 +1,7 @@
 [
 	{
-		"firstName": "Mr.",
-		"lastName": "The Plague",
+		"fName": "Mr.",
+		"lName": "The Plague",
 		"email": "theplague@fakeemail.com",
 		"password": "god",
 		"reviewer": false,
@@ -11,8 +11,8 @@
 		"areaOfStudy": "Computer Science"		
 	},
 	{
-		"firstName": "Albert",
-		"lastName": "Einstein",
+		"fName": "Albert",
+		"lName": "Einstein",
 		"email": "spookyaction@adistance.com",
 		"password": "eequalsmc2",
 		"reviewer": false,
@@ -22,8 +22,8 @@
 		"areaOfStudy": "physics"		
 	},
 	{
-		"firstName": "John B.",
-		"lastName": "Goodenough",
+		"fName": "John B.",
+		"lName": "Goodenough",
 		"email": "JBGoodenough@UTA.edu",
 		"password": "goodpassword",
 		"reviewer": false,
@@ -33,8 +33,8 @@
 		"areaOfStudy": "chemistry"
 	},
 	{
-		"firstName": "Charles",
-		"lastName": "Darwin",
+		"fName": "Charles",
+		"lName": "Darwin",
 		"email": "CDarwin@HMSBeagle.com",
 		"password": "finchbeak",
 		"reviewer": false,

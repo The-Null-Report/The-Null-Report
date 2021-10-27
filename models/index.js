@@ -1,11 +1,12 @@
-const Users = require('./users');
-const Paper = require('./paper');
+const User = require('./User');
+const Paper = require('./Paper');
 
-Users.hasMany(Paper, {
+User.hasMany(Paper, {
 	foreignKey: 'publisher_id'
 });
 
-Paper.belongsTo(Users, {
+Paper.belongsTo(User, {
 	foreignKey: 'publisher_id'
 })
 
+module.exports = { User, Paper }
