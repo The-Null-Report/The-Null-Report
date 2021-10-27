@@ -10,33 +10,33 @@ class Users extends Model {
 
 Users.init(
     {
-        id:{
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true, 
         },
-        fName:{
+        fName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        lName:{
+        lName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        password:{
+        password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-            len: [8],
+                len: [8],
             }
         },
-        email:{
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
-            isEmail: true,
+                isEmail: true,
             }
         },
         admin:{
@@ -70,17 +70,16 @@ Users.init(
 
     },
     {
-    hooks: {
-        beforeCreate: async (newUserData) => {
-          newUserData.password = await bcrypt.hash(newUserData.password, 10);
-          return newUserData;
+        hooks: {
+            beforeCreate: async (newUserData) => {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            beforeUpdate: async (updatedUserData) => {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+            }
         },
-        beforeUpdate: async (updatedUserData) => {
-          updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-          return updatedUserData;
-        },
-      },
-
         sequelize,
         timestamps: false,
         freezeTableName: true,
