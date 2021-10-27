@@ -53,13 +53,13 @@ Users.init(
         },
         submittedId:{
             type: DataTypes.STRING,
-            allowNul: true,
+            allowNull: true,
 
         },
         saved:{
             type: DataTypes.STRING,
-            allowNul: true,
-        }
+            allowNull: true,
+        },
         
         //NOT SURE IF WE WANT TO ADD THIS LET ME KNOW WHAT YOU THINK
         // date_created: {
