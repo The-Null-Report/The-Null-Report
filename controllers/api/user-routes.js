@@ -26,14 +26,19 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
-      username: req.body.username,
+      fName: req.body.fName,
+      lName: req.body.lName,
       password: req.body.password,
+      email: req.body.email,
+      admin: req.body.admin,
+      reviewer: req.body.reviewer,
+      areaOfStudy: req.body.areaOfStudy,
     });
 
     req.session.save(() => {
-      req.session.user_id = newUser.id;
-      req.session.username = newUser.username;
-      req.session.logged_in = true;
+      req.session.userId = newUser.id;
+      req.session.username = newUser.email;
+      req.session.loggedIn = true;
 
       res.json(newUser);
     });
@@ -63,9 +68,9 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = user.id;
+      req.session.userId = user.id;
       req.session.username = user.username;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.json({ user, message: 'You are now logged in!' });
     });
