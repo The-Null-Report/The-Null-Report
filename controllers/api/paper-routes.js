@@ -1,12 +1,34 @@
 const router = require('express').Router();
-const { papers } = require('../../models');
+const { Paper } = require('../../models');
+
+router.get('/', async (req, res) => {
+    try {
+        const paperData = await Paper.findAll({});
+        res.json(paperData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const paperData = await Paper.findOne({
+            where: {
+                id: req.params.id,
+            },
+        });
+        res.json(paperData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 router.post('/', async (req, res) => {
     const body = req.body;
 
     try {
-        const newPaper = await papers.create({ ...body, user_id: req.session.user_id });
-        res.json(newPaper);
+        const paperData = await Paper.create({ ...body, user_id: req.session.user_id });
+        res.json(paperData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -14,17 +36,12 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const [affectedRows] = await papers.update(req.body, {
+        const updateData = await Paper.update(req.body, {
             where: {
                 id: req.params.id,
             },
         });
-
-        if (affectedRows > 0) {
-            res.status(200).end();
-        } else {
-            res.status(404).end();
-        }
+        res.json(updateData);
     } catch (err) {
         res.status(500).json(err);
     }
@@ -32,7 +49,7 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const [affectedRows] = papers.destroy({
+        const [affectedRows] = Paper.destroy({
             where: {
                 id: req.params.id,
             },
@@ -47,3 +64,5 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;

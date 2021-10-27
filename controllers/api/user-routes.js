@@ -1,9 +1,31 @@
 const router = require('express').Router();
-const { users } = require('../../models');
+const { User } = require('../../models');
+
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll();
+    res.json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
-    const newUser = await users.create({
+    const newUser = await User.create({
       username: req.body.username,
       password: req.body.password,
     });
@@ -22,7 +44,7 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const user = await users.findOne({
+    const user = await User.findOne({
       where: {
         username: req.body.username,
       },
@@ -33,7 +55,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = users.checkPassword(req.body.password);
+    const validPassword = User.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: 'No user account found!' });
@@ -59,6 +81,32 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  try {
+    const updateUser = await User.update({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(updateUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleteUser = await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(deleteUser);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
