@@ -48,13 +48,16 @@ Paper.init(
 		date_published: { 
 			type: DataTypes.DATE,
 			allowNull: false,
+			defaultValue: DataTypes.NOW,
 		},
 	},
 	{
 		sequelize,
-		freezeTableName: false,
+		freezeTableName: true,
 		underscored: true,
 		timestamps: true,
 		modelName: 'paper',
 	}
 )
+
+module.exports = Paper;
