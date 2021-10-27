@@ -29,6 +29,7 @@ Users.init(
             allowNull: false,
             validate: {
             len: [8],
+            }
         },
         email:{
             type: DataTypes.STRING,
@@ -36,6 +37,7 @@ Users.init(
             unique: true,
             validate: {
             isEmail: true,
+            }
         },
         admin:{
             type: DataTypes.BOOLEAN,
@@ -51,12 +53,12 @@ Users.init(
         },
         submittedId:{
             type: DataTypes.STRING,
-            allowNul: true,
+            allowNull: true,
 
         },
         saved:{
             type: DataTypes.STRING,
-            allowNul: true,
+            allowNull: true,
         },
         
         //NOT SURE IF WE WANT TO ADD THIS LET ME KNOW WHAT YOU THINK
@@ -67,6 +69,7 @@ Users.init(
         // },
 
     },
+    {
     hooks: {
         beforeCreate: async (newUserData) => {
           newUserData.password = await bcrypt.hash(newUserData.password, 10);
@@ -77,7 +80,7 @@ Users.init(
           return updatedUserData;
         },
       },
-    {
+
         sequelize,
         timestamps: false,
         freezeTableName: true,

@@ -1,0 +1,20 @@
+[
+	{
+		"title": "Physics paper",
+		"author": "Albert Einstein",
+		"subject": "physics",
+		"reviewed": true
+	},
+	{
+		"title":"Chemistry paper",
+		"author": "John B. Goodenough",
+		"subject": "chemistry",
+		"reviewed": "false"
+	},
+	{
+		"title":"Biology paper",
+		"author": "Charles Darwin",
+		"subject": "biology",
+		"reviewed": false
+	}
+]
