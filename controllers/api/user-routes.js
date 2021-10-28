@@ -1,18 +1,47 @@
 const router = require('express').Router();
-const { users } = require('../../models');
+const { User } = require('../../models');
+
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll();
+    res.json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', async (req, res) => {
   try {
-    const newUser = await users.create({
-      username: req.body.username,
+    const newUser = await User.create({
+      fName: req.body.fName,
+      lName: req.body.lName,
       password: req.body.password,
+      email: req.body.email,
+      admin: req.body.admin,
+      reviewer: req.body.reviewer,
+      areaOfStudy: req.body.areaOfStudy,
     });
 
     req.session.save(() => {
-      req.session.user_id = newUser.id;
-      req.session.username = newUser.username;
-      req.session.logged_in = true;
-      
+
+      req.session.userId = newUser.id;
+      req.session.username = newUser.email;
+      req.session.loggedIn = true;
+
+
       res.json(newUser);
     });
   } catch (err) {
@@ -22,9 +51,9 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const user = await users.findOne({
+    const user = await User.findOne({
       where: {
-        username: req.body.username,
+        email: req.body.email,
       },
     });
 
@@ -33,7 +62,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = users.checkPassword(req.body.password);
+    const validPassword = user.checkPassword(req.body.password);
 
     if (!validPassword) {
       res.status(400).json({ message: 'No user account found!' });
@@ -41,9 +70,9 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = user.id;
-      req.session.username = user.username;
-      req.session.logged_in = true;
+      req.session.userId = user.id;
+      req.session.username = user.email;
+      req.session.loggedIn = true;
 
       res.json({ user, message: 'You are now logged in!' });
     });
@@ -59,6 +88,32 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  try {
+    const updateUser = await User.update({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(updateUser);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const deleteUser = await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(deleteUser);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
