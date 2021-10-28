@@ -36,9 +36,11 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
+
       req.session.userId = newUser.id;
       req.session.username = newUser.email;
       req.session.loggedIn = true;
+
 
       res.json(newUser);
     });
