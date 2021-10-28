@@ -1,24 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Null Project</title>
-  <link rel="stylesheet" href="/css/jass.css">
-</head>
-
-<body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      The Null Project
-    </h1>
         <div>
-         {{#if logged_in}} <!-- Insert true parameter here -->
-        <button class="verifybtn" id="verify"> Verify </button>
+         {{#if user.reviewer}} <!-- Insert true parameter here -->
+          <input type="checkbox" class="reviewedCheckbox" id="reviewed" name="reviewed">
+  	      <label for="reviewed">Mark as reviewed</label>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+              <div class="modal-body">
+                <p class="message">Article has been reviewed</p>
+              </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         {{/if}}
       </div>
 
-</body>
-
-</html> 
+  
+  {{#if user.reviewer}}
+  <script src:"./public/js/toggle-reviewed.js"></script>
+  {{/if}}
