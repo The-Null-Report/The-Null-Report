@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { papers } = require('../models/');
-const { adminAuth, reviewerAuth, publisherAuth } = require('../util/auth');
+const { adminAuth, reviewerAuth, publisherAuth } = require('../utils/auth');
 
 //admin route for retrieving all papers
 router.get('/', adminAuth, async (req, res) => {
