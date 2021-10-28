@@ -24,19 +24,19 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8],
-            }
-        },
         email: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
             validate: {
                 isEmail: true,
+            }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [8],
             }
         },
         admin:{
@@ -46,6 +46,10 @@ User.init(
         reviewer:{
             type: DataTypes.BOOLEAN,
             allowNull: false,
+        },        
+        reviewerRequestPending:{
+            type: DataTypes.BOOLEAN,
+            allowNull: false,            
         },
         areaOfStudy:{
             type: DataTypes.STRING,

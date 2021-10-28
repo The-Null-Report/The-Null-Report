@@ -1,16 +1,14 @@
 const router = require('express').Router();
-const { papers } = require('../models');
+const { Paper, User } = require('../models');
 
-//get all papers for homepage
+//get all Paper for homepage
 router.get('/', async (req, res) => {
     try {
-        const paperData = await papers.findAll({
-            inlude: [users],
-        });
+        const paperData = await Paper.findAll();
 
-        const papersPlain = paperData.map((paper) => paper.get({ plain: true }));
+        const papers = paperData.map((paper) => paper.get({ plain: true }));
 
-        res.render('homepage', { papersPlain });
+        res.render('homepage', { papers });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -19,8 +17,8 @@ router.get('/', async (req, res) => {
 //get a single post
 router.get('/post/:id', async (req, res) => {
     try {
-        const paperData = await papers.findByPk(req.params.id, {
-            include: [users],
+        const paperData = await Paper.findByPk(req.params.id, {
+            include: [User],
         });
 
         if (paperData) {

@@ -4,43 +4,47 @@
 		"lName": "The Plague",
 		"email": "theplague@fakeemail.com",
 		"password": "god",
-		"reviewer": false,
 		"admin": true,
+		"reviewer": false,
+		"reviewerRequestPending": false,
+		"areaOfStudy": "Computer Science",
 		"submitted": null,
-		"saved": null,
-		"areaOfStudy": "Computer Science"		
+		"saved": null
 	},
 	{
 		"fName": "Albert",
 		"lName": "Einstein",
 		"email": "spookyaction@adistance.com",
 		"password": "eequalsmc2",
-		"reviewer": false,
 		"admin": false,
+		"reviewer": false,
+		"reviewerRequestPending": false,
+		"areaOfStudy": "physics",
 		"submitted": null,
-		"saved": null,
-		"areaOfStudy": "physics"		
+		"saved": null		
 	},
 	{
 		"fName": "John B.",
 		"lName": "Goodenough",
 		"email": "JBGoodenough@UTA.edu",
 		"password": "goodpassword",
-		"reviewer": false,
 		"admin": false,
+		"reviewer": false,
+		"reviewerRequestPending": false,
+		"areaOfStudy": "chemistry",
 		"submitted": null,
-		"saved": null,
-		"areaOfStudy": "chemistry"
+		"saved": null
 	},
 	{
-		"fName": "Charles",
-		"lName": "Darwin",
-		"email": "CDarwin@HMSBeagle.com",
-		"password": "finchbeak",
-		"reviewer": false,
+		"fName": "Oliver",
+		"lName": "Sacks",
+		"email": "mywifeis@hat.com",
+		"password": "brains!!!",
 		"admin": false,
+		"reviewer": false,
+		"reviewerRequestPending": false,
+		"areaOfStudy": "biology",
 		"submitted": null,
-		"saved": null,
-		"areaOfStudy": "biology"
+		"saved": null
 	}
 ]

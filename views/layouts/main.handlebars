@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Null Project</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
 </head>
 
 <body>
@@ -13,24 +13,27 @@
     <h1>
       The Null Project
     </h1>
-        <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+    <nav>
+      <!-- Conditionally render login or logout links -->
+      {{#if loggedIn}}
+      <a href="/profile">profile</a> |
+      <button class="no-button" id="logout">logout</button>
+      {{else}}
+      <a href="/login">login</a>
+      <button class="no-button" id="login">login</button>
+      {{/if}}
+    </nav>
   </header>
+
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>
+  
   <footer>
-      
+
   </footer>
 
-  {{#if logged_in}}
+  {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
