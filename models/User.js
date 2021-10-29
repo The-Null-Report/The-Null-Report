@@ -14,16 +14,19 @@ User.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true, 
+            autoIncrement: true,
         },
+
         fName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+
         lName: {
             type: DataTypes.STRING,
             allowNull: false,
         },
+
         email: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -32,6 +35,7 @@ User.init(
                 isEmail: true,
             }
         },
+
         password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -39,39 +43,37 @@ User.init(
                 len: [8],
             }
         },
-        admin:{
-            type: DataTypes.BOOLEAN,
-            allowNull: false,    
-        },
-        reviewer:{
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },        
-        reviewerRequestPending:{
-            type: DataTypes.BOOLEAN,
-            allowNull: false,            
-        },
-        areaOfStudy:{
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        submittedId:{
-            type: DataTypes.STRING,
-            allowNull: true,
 
+        admin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
         },
-        saved:{
+
+        reviewer: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+
+        reviewerRequestPending: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+        },
+
+        areaOfStudy: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
         
-        //NOT SURE IF WE WANT TO ADD THIS LET ME KNOW WHAT YOU THINK
-        // date_created: {
-        //     type: DataTypes.DATE,
-        //     allowNull: false,
-        //     defaultValue: DataTypes.NOW,
-        // },
+        submittedId: {
+            type: DataTypes.STRING,
+            allowNull: true,
 
+        },
+
+        saved: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
     },
     {
         hooks: {
