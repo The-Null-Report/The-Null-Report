@@ -1,30 +1,24 @@
-<div>
   {{#if admin}}
   <!-- Insert true parameter here -->
-  <form class="pendingReviewers" id="pendingReviewers"> List of Users </form>
-  <div>
-    {{#if admin}}
+  <form class="pendingReviewers" id="pendingReviewers">  
+  <h3>List of Users</h3>>
     <!-- Insert true parameter here -->
     <ul class="list-group">
 
     </ul>
- 
-    {{/if}}
-  </div>
-
+  </form>
+  
   <div>
-    {{#if admin}}
     <!-- Insert true parameter here -->
     <button class="editor" id="deleteUserBtn">Delete User</button>
-    {{/if}}
   </div>
 
   {{/if}}
 
-</div>
+
 
 {{if admin}}
-<script src:"../public/js/pending-reviewers.js"></script>
+<script src="../public/js/pending-reviewers.js"></script>
 <script src="../public/js/toggle-reviewer-role.js"></script>
 <script src="../public/js/delete-user.js"></script>
 {{/if}}
