@@ -24,6 +24,8 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  console.log(req.body);
+
   try {
     const newUser = await User.create({
       fName: req.body.fName,
@@ -32,15 +34,14 @@ router.post('/', async (req, res) => {
       email: req.body.email,
       admin: req.body.admin,
       reviewer: req.body.reviewer,
+      reviewerRequestPending: req.body.reviewerRequestPending,
       areaOfStudy: req.body.areaOfStudy,
     });
 
     req.session.save(() => {
-
       req.session.userId = newUser.id;
-      req.session.username = newUser.email;
+      req.session.email = newUser.email;
       req.session.loggedIn = true;
-
 
       res.json(newUser);
     });
@@ -71,7 +72,7 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.userId = user.id;
-      req.session.username = user.email;
+      req.session.email = user.email;
       //added variables for admin and reviewer authentication
       req.session.admin = user.admin;
       req.session.reviewer = user.reviewer;
