@@ -73,6 +73,9 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.userId = user.id;
       req.session.email = user.email;
+      //added variables for admin and reviewer authentication
+      req.session.admin = user.admin;
+      req.session.reviewer = user.reviewer;
       req.session.loggedIn = true;
 
       res.json({ user, message: 'You are now logged in!' });
