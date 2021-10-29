@@ -1,18 +1,21 @@
 <div>
-  {{#if logged_in}}
+  {{#if admin}}
   <!-- Insert true parameter here -->
-  <form class="editor" id="deleteuserbtn"> List of Users </form>
+  <form class="pendingReviewers" id="pendingReviewers"> List of Users </form>
   <div>
-    {{#if logged_in}}
+    {{#if admin}}
     <!-- Insert true parameter here -->
-    <button class="editor" id="editorbtn"> Change to Editor </button>
+    <ul class="list-group">
+
+    </ul>
+ 
     {{/if}}
   </div>
 
   <div>
-    {{#if logged_in}}
+    {{#if admin}}
     <!-- Insert true parameter here -->
-    <button class="editor" id="deleteuserbtn"> Delete User </button>
+    <button class="editor" id="deleteUserBtn">Delete User</button>
     {{/if}}
   </div>
 
@@ -20,9 +23,8 @@
 
 </div>
 
-{{!-- <div>
-  {{#if logged_in}}
-  <!-- Insert true parameter here -->
-  <button class="editor" id="deleteuserbtn"> Delete Post </button>
-  {{/if}}
-</div> --}}
+{{if admin}}
+<script src:"../public/js/pending-reviewers.js"></script>
+<script src="../public/js/toggle-reviewer-role.js"></script>
+<script src="../public/js/delete-user.js"></script>
+{{/if}}

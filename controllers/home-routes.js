@@ -34,16 +34,16 @@ router.get('/post/:id', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         res.redirect('/');
-        returnl
+        return;
     }
 
     res.render('login');
 });
 
 router.get('/signup', (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
