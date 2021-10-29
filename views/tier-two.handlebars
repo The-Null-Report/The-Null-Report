@@ -3,14 +3,23 @@
   <!-- Insert true parameter here -->
   <form class="watchlist" id="watch"> Watchlist </form>
 
-  
+  {{#each papers}}
+  <a class="list-item flex-row justify-space-between" href="/dashboard{{id}}"></a>
+  <ul> {{title}} </ul>
+  </a>
 
+  {{/each}}
   {{/if}}
 </div>
+
+
+
+
 
 {{!-- get all papers according to user id
 display update and delete btns on each paper --}}
 
 {{!-- create new paper btn --}}
+
 
 {{!-- watchlist sidebar --}}
