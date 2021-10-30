@@ -1,6 +1,17 @@
-
-
 {{#if user.reviewer}} 
+
+<div class="container">
+  <!-- Content here -->
+</div>
+
+<form class="pendingReviewers" id="pendingReviewers">  
+<h3>Papers to be reviewed</h3>>
+<!-- Insert true parameter here -->
+<ul class="list-group">
+
+</ul>
+</form>
+
 <input type="checkbox" class="reviewedCheckbox" id="reviewed" name="reviewed">
 <label for="reviewed">Mark as reviewed</label>
 
@@ -17,9 +28,4 @@
     </div>
   </div>
 </div>
-{{/if}}
-
-  
-{{#if user.reviewer}}
-<script src="../public/js/toggle-reviewed.js"></script>
 {{/if}}
