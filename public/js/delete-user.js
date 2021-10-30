@@ -1,7 +1,6 @@
 const deleteUser = async function(e) {
 	e.preventDefault();
 
-	// const deleteUserBtn = document.querySelector('#deleteUserBtn');
 	document.querySelector('#deleteUserBtn').addEventListener('click', function(){
 		const response = await fetch('/:id', {
 			method: 'DELETE',

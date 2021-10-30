@@ -8,7 +8,7 @@ const getPendingPapers = async function(e){
 	})
 
 	for(const results of pendingPapers){
-		const listEl = document.querySelector('.list-group');
+		const listEl = document.querySelector('.pendingPapersList');
 		listEl.appendChild(
 			`<li class="list-group-item">
 			<input class="form-check-input me-1" id="reviewer" type="checkbox" value="" aria-label=""><button class='link'>${Paper.title}</link></li>`

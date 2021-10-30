@@ -1,13 +1,13 @@
 {{#if admin}}
-  <form class="pendingReviewers" id="pendingReviewers">  
-  <h3>List of Users</h3>>
-    <ul class="list-group">
+  <form class="allUsers">
+    <ul class="allUsersList">
+
     </ul>
   </form>
   
-  <div>
-	{{!-- add list of current users --}}
-    <button class="editor" id="deleteUserBtn">Delete User</button>
-  </div>
-
+  <form class="pendingReviewers" id="pendingReviewers">  
+  <h3>List of Users</h3>>
+    <ul class="pendingReviewersList">
+    </ul>
+  </form>  
   {{/if}}
