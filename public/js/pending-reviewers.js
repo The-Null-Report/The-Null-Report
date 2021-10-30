@@ -10,7 +10,7 @@ const getPendingReviewers = async function(e){
 	})
 
 	for(const results of pendingReviewers){
-		const listEl = document.querySelector('.list-group');
+		const listEl = document.querySelector('.pendingReviewersList');
 		listEl.appendChild(
 			`<li class="list-group-item">
 			<input class="form-check-input me-1" id="reviewer" type="checkbox" value="" aria-label="">${User.firstName} ${User.lastName}</li>`

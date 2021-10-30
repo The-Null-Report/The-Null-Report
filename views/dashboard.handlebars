@@ -1,0 +1,23 @@
+<section class="dashboard">
+{{> tier-four-dashboard}}
+{{> tier-three-dashboard}}
+{{> tier-two-dashboard}}
+</section>
+
+
+{{if admin}}
+<script src="../public/js/pending-reviewers.js"></script>
+<script src="../public/js/toggle-reviewer-role.js"></script>
+<script src="../public/js/list-all-users.js"></script>
+<script src="../public/js/delete-user.js"></script>
+{{/if}}
+
+{{#if reviewer}}
+<script src="../public/js/toggle-reviewed.js"></script>
+<script src='../public/js/.pending-papers.js'></script>
+{{/if}}
+
+{{#if loggedIn}}
+<script src="./public/js/createNewPaper.js"></script>
+{{!-- <script src="../public/js/save-to-watchlist.js"></script> --}}
+{{/if}}
