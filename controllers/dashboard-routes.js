@@ -5,8 +5,13 @@ const { withAuth } = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
     try {
         if (req.session.admin === true) {
+            const users = await User.findAll();
+            
+            console.log(users);
+            
             res.render('tier-four-dashboard', {
                 layout: 'dashboard',
+                users,
             });
         } else if (req.session.admin === false && req.session.reviewer === true) {
             res.render('tier-three-dashboard', {
@@ -29,6 +34,12 @@ router.get('/', withAuth, async (req, res) => {
     } catch (err) {
         res.redirect('login');
     }
-})
+});
+
+router.get('/new', withAuth, (req, res) => {
+    res.render('new-post', {
+        layout: 'dashboard',
+    });
+});
 
 module.exports = router;

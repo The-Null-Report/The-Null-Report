@@ -30,6 +30,7 @@ Paper.init(
 		reviewed: { 
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
+			default: false,
 		},
 		
 		published_by: { 
