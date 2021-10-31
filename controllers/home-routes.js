@@ -18,16 +18,16 @@ router.get('/', async (req, res) => {
 });
 
 //get a single post
-router.get('/post/:id', async (req, res) => {
+router.get('/paper/:id', async (req, res) => {
     try {
         const paperData = await Paper.findByPk(req.params.id, {
             include: [User],
         });
 
         if (paperData) {
-            const paperPlain = paperData.get({ plain: true });
+            const paper = paperData.get({ plain: true });
 
-            res.render('single-post', { paperPlain });
+            res.render('single-paper', { paper });
         } else {
             res.status(404).end();
         }
