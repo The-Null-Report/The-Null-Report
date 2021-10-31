@@ -13,8 +13,17 @@ router.get('/', withAuth, async (req, res) => {
                 layout: 'dashboard',
             });
         } else {
+            const paperData = await Paper.findAll({
+                where: {
+                    publisher_id: req.session.userId,
+                },
+            });
+
+            const papers = paperData.map((paper) => paper.get({ plain: true }));
+
             res.render('tier-two-dashboard', {
                 layout: 'dashboard',
+                papers,
             });
         }
     } catch (err) {
