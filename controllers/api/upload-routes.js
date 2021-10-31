@@ -15,28 +15,27 @@ const storage = multer.memoryStorage({
     }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({storage}).single('file');
 
-router.post('/', upload.single('file'), (req, res) => {
-    console.log(req.body);
-    let currentFile = req.file.originalname.split(".");
-    const fileType = currentFile[currentFile.length - 1];
+router.post('/', upload, (req, res) => {
+    console.log(req);
+    console.log(upload);
+    // let currentFile = req.file.originalname.split(".");
+    // const fileType = currentFile[currentFile.length - 1];
 
-    console.log(req.file);
+    // const params = {
+    //     Bucket: 'the-null-report',
+    //     Key: `${uuidv4()}.${fileType}`,
+    //     Body: req.file.buffer
+    // };
 
-    const params = {
-        Bucket: 'the-null-report',
-        Key: `${uuidv4()}.${fileType}`,
-        Body: req.file.buffer
-    };
-
-    s3.upload(params, (err, data) => {
-        if (err) {
-            res.status(500).json(err)
-        } else {
-            res.status(200).send(data);
-        }
-    });
+    // s3.upload(params, (err, data) => {
+    //     if (err) {
+    //         res.status(500).json(err)
+    //     } else {
+    //         res.status(200).send(data);
+    //     }
+    // });
 
 });
 
