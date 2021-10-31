@@ -41,7 +41,7 @@ The Null Project is licensed under the terms of the MIT license and is available
 ## Contact
 Please contact the members of this project for any questions!
 
-Matthew Gomez Github: https://github.com/sortaticat
+Matthew Gomez Github: https://github.com/sortaticat Email: soraticat@gmail.com
 
 John Oh Github: https://github.com/therealohzone
 
