@@ -25,7 +25,13 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const paperData = await Paper.create({ userId: req.session.userId });
+        const paperData = await Paper.create({ 
+            title: req.body.title,
+            author: req.body.author,
+            subject: req.body.subject,
+            reviewed: false,
+            published_by: '',
+        });
         res.json(paperData);
     } catch (err) {
         res.status(500).json(err);

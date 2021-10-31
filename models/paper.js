@@ -41,7 +41,7 @@ Paper.init(
 		publisher_id: { 
 			type: DataTypes.INTEGER,
 			references: {
-				model: 'User',
+				model: 'user',
 				key: 'id',
 			},
 		},

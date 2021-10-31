@@ -12,7 +12,13 @@
 		<label class="form-label" for="paper-subject">Subject</label>
 		<input type="text" name="paper-subject" class="form-input" />
 
-		<button type="submit" class="btn">Submit</button>
+        <form action="/action_page.php">
+            <label for="myFile">Select a File:</label>
+            <input type="file" id="myFile" name="file">
+        </form>
+
+		<button type="submit" class="btn" id="submit-btn">Submit</button>
 	</form>
 </div>
 <script src="/js/createNewPaper.js"></script>
+<script src="/js/upload.js"></script>

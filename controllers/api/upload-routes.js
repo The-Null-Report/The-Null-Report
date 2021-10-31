@@ -2,10 +2,11 @@ require('dotenv/config');
 const router = require('express').Router();
 const multer = require('multer');
 const AWS = require('aws-sdk');
+const { v4: uuidv4 } = require('uuid');
 
 const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ID,
-    secretAccessKey: process.env.AWS_SECRET
+    accessKeyId: 'AKIASDWXVSSKI7SL6BPO',
+    secretAccessKey: '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'
 })
 
 const storage = multer.memoryStorage({
@@ -14,15 +15,18 @@ const storage = multer.memoryStorage({
     }
 });
 
-const upload = multer({storage}).single('file');
+const upload = multer({ storage: storage });
 
-router.post('/', upload, (req, res) => {
+router.post('/', upload.single('file'), (req, res) => {
+    console.log(req.body);
     let currentFile = req.file.originalname.split(".");
     const fileType = currentFile[currentFile.length - 1];
 
+    console.log(req.file);
+
     const params = {
-        Bucket: process.env.AWS_BUCKET_NAME,
-        Key: fileType,
+        Bucket: 'the-null-report',
+        Key: `${uuidv4()}.${fileType}`,
         Body: req.file.buffer
     };
 
@@ -32,7 +36,7 @@ router.post('/', upload, (req, res) => {
         } else {
             res.status(200).send(data);
         }
-    })
+    });
 
 });
 
