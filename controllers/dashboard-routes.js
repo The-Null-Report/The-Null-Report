@@ -1,57 +1,45 @@
 const router = require('express').Router();
-const { papers } = require('../models/');
-const { adminAuth, reviewerAuth, publisherAuth } = require('../utils/auth');
+const { Paper, User } = require('../models/');
+const { withAuth } = require('../utils/auth');
 
-//admin route for retrieving all papers
-router.get('/', adminAuth, async (req, res) => {
-    try{
-        const postPaper = await papers.findAll();
-
-        const papersPlain = postPaper.map((paper) => papers.get({ plain: true}));
-
-        res.render('all-posts', {
-            layout: 'dashboard',
-            papersPlain
-        })
-    } catch (err) {
-        res.redirect('login');
-    }
-});
-
-//create a route for reviewers to retrieve all exisiting papers, approved or not
-router.get('/', reviewerAuth, async (req, res) => {
-    try{
-        const postPaper = await papers.findAll();
-
-        const papersPlain = postPaper.map((paper) => papers.get({ plain: true}));
-
-        res.render('all-posts', {
-            layout: 'dashboard',
-            papersPlain
-        })
-    } catch (err) {
-        res.redirect('login');
-    }
-});
-
-//created a route for reviewers to retrieve a specific paper to edit
-router.get('/edit/:id', reviewerAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
-        const postPaper = await papers.findByPk(req.params.id);
-
-        if (postPaper) {
-            const paper = postPaper.get({ plain: true });
-
-            res.render('', {
+        if (req.session.admin === true) {
+            const users = await User.findAll();
+            
+            console.log(users);
+            
+            res.render('tier-four-dashboard', {
                 layout: 'dashboard',
-                paper,
+                users,
+            });
+        } else if (req.session.admin === false && req.session.reviewer === true) {
+            res.render('tier-three-dashboard', {
+                layout: 'dashboard',
             });
         } else {
-            res.status(404).end();
+            const paperData = await Paper.findAll({
+                where: {
+                    publisher_id: req.session.userId,
+                },
+            });
+
+            const papers = paperData.map((paper) => paper.get({ plain: true }));
+
+            res.render('tier-two-dashboard', {
+                layout: 'dashboard',
+                papers,
+            });
         }
     } catch (err) {
         res.redirect('login');
     }
+});
+
+router.get('/new', withAuth, (req, res) => {
+    res.render('new-post', {
+        layout: 'dashboard',
+    });
 });
 
 module.exports = router;

@@ -8,7 +8,10 @@ router.get('/', async (req, res) => {
 
         const papers = paperData.map((paper) => paper.get({ plain: true }));
 
-        res.render('homepage', { papers });
+        res.render('homepage', {
+            papers,
+            loggedIn: req.session.loggedIn,
+        });
     } catch (err) {
         res.status(500).json(err);
     }

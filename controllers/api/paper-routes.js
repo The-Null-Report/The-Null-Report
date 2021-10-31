@@ -24,10 +24,14 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const body = req.body;
-//include published = fName and lName.
     try {
-        const paperData = await Paper.create({ ...body, user_id: req.session.user_id });
+        const paperData = await Paper.create({ 
+            title: req.body.title,
+            author: req.body.author,
+            subject: req.body.subject,
+            reviewed: false,
+            published_by: '',
+        });
         res.json(paperData);
     } catch (err) {
         res.status(500).json(err);

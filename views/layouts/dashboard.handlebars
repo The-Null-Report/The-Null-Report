@@ -24,12 +24,7 @@
         <ul class="mt-3 d-flex navbar mr-auto align-items-center justify-content-center">
           <a class="rounded p-1 mr-3 text-white bg-dark btn-lg btn btn-outline-light" href="/">Home</a>
           <a class="rounded p-1 mr-3 text-white bg-dark btn-lg btn btn-outline-light" href="/dashboard">Dashboard</a>
-          {{#if loggedIn}}
-            <button class="rounded p-1 mr-3 btn-lg btn btn-outline-light" id="logout-btn">Logout</button>
-          {{else}}
-            <a class="rounded p-1 mr-3 text-white bg-dark btn-lg btn btn-outline-light" href="/login">Login</a>
-            <a class="rounded p-1 mr-3 text-white bg-dark btn-lg btn btn-outline-light" href="/signup">Sign Up!</a>
-          {{/if}}
+          <button class="rounded p-1 mr-3 btn-lg btn btn-outline-light" id="logout-btn">Logout</button>
         </ul>
         <form class="form-inline my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

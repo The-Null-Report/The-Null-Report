@@ -24,8 +24,6 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
-
   try {
     const newUser = await User.create({
       fName: req.body.fName,
@@ -42,6 +40,7 @@ router.post('/', async (req, res) => {
       req.session.userId = newUser.id;
       req.session.email = newUser.email;
       req.session.loggedIn = true;
+
 
       res.json(newUser);
     });
