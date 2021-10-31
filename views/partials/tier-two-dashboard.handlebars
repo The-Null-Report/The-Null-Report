@@ -1,18 +1,14 @@
-{{#if loggedIn}}
 {{!-- <label for="upload">Upload your document</label> --}}
 
+<form class="watchlist" id="watch"> Watchlist </form>
 
+{{!-- {{#each papers}}
+<a class="list-item flex-row justify-space-between" href="/dashboard{{id}}"></a>
+<ul> {{title}} </ul>
+</a>
 
-  <form class="watchlist" id="watch"> Watchlist </form>
-
-  {{!-- {{#each papers}}
-  <a class="list-item flex-row justify-space-between" href="/dashboard{{id}}"></a>
-  <ul> {{title}} </ul>
-  </a>
-
-  {{/each}} --}}
+{{/each}} --}}
  
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog">
 	<div class="modal-content">
@@ -40,7 +36,6 @@
 		<input type="text" class="form-control" id="subject">
 		</div>
 	</div>
-	{{!-- FORM ENDS --}}
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -48,4 +43,3 @@
 	</div>
 </div>
 </div>
-{{/if}}

@@ -1,23 +1,16 @@
 <section class="dashboard">
-{{> tier-four-dashboard}}
-{{> tier-three-dashboard}}
-{{> tier-two-dashboard}}
+    {{> tier-four-dashboard}}
+    {{> tier-three-dashboard}}
+    {{> tier-two-dashboard}}
 </section>
 
+<script src="/js/pending-reviewers.js"></script>
+<script src="/js/toggle-reviewer-role.js"></script>
+<script src="/js/list-all-users.js"></script>
+<script src="/js/delete-user.js"></script>
 
-{{if admin}}
-<script src="../public/js/pending-reviewers.js"></script>
-<script src="../public/js/toggle-reviewer-role.js"></script>
-<script src="../public/js/list-all-users.js"></script>
-<script src="../public/js/delete-user.js"></script>
-{{/if}}
+<script src="/js/toggle-reviewed.js"></script>
+<script src='/js/.pending-papers.js'></script>
 
-{{#if reviewer}}
-<script src="../public/js/toggle-reviewed.js"></script>
-<script src='../public/js/.pending-papers.js'></script>
-{{/if}}
-
-{{#if loggedIn}}
-<script src="./public/js/createNewPaper.js"></script>
-{{!-- <script src="../public/js/save-to-watchlist.js"></script> --}}
-{{/if}}
+<script src="/js/createNewPaper.js"></script>
+<script src="/js/save-to-watchlist.js"></script>
