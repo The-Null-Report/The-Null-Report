@@ -1,15 +1,29 @@
-<form class="pendingPapers" id="pendingPapers">  
-<h3>Papers to be reviewed</h3>>
+{{!-- <form class="pendingPapers" id="pendingPapers">  
+  <h3>Papers to be reviewed</h3>>
+  <ul class="pendingPapersList">
+  </ul>
+</form> --}}
+<article class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>Chemistry paper</h2>
+    </div>
+    <div class="card-body">
+      <input type="checkbox" class="reviewedCheckbox" id="reviewed" name="reviewed">
+      <label for="reviewed">Mark as reviewed</label>
+    </div>
+</article>
 
-<ul class="pendingPapersList">
+<article class="card">
+    <div class="card-header flex-row justify-space-between">
+      <h2>Biology paper</h2>
+    </div>
+    <div class="card-body">
+      <input type="checkbox" class="reviewedCheckbox" id="reviewed" name="reviewed">
+      <label for="reviewed">Mark as reviewed</label>
+    </div>
+</article>
 
-</ul>
-</form>
-
-<input type="checkbox" class="reviewedCheckbox" id="reviewed" name="reviewed">
-<label for="reviewed">Mark as reviewed</label>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body">
@@ -21,7 +35,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
-<script src="/js/toggle-reviewed.js"></script>
-<script src='/js/.pending-papers.js'></script>
+{{!-- <script src="/js/toggle-reviewed.js"></script>
+<script src='/js/pending-papers.js'></script> --}}

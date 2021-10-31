@@ -17,7 +17,7 @@
 		"email": "spookyaction@adistance.com",
 		"password": "eequalsmc2",
 		"admin": false,
-		"reviewer": false,
+		"reviewer": true,
 		"reviewerRequestPending": false,
 		"areaOfStudy": "physics",
 		"submitted": null,
