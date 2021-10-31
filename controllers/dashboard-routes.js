@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const { Paper, User } = require('../models/');
-const { adminAuth, reviewerAuth, publisherAuth } = require('../utils/auth');
+const { withAuth } = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     try {
-        res.render('dashboard');
+        res.render('dashboard', {
+            layout: 'dashboard',
+        });
     } catch (err) {
         res.redirect('login');
     }
