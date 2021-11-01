@@ -20,22 +20,22 @@ const upload = multer({storage}).single('file');
 router.post('/', upload, (req, res) => {
     console.log(req);
     console.log(upload);
-    // let currentFile = req.file.originalname.split(".");
-    // const fileType = currentFile[currentFile.length - 1];
+    let currentFile = req.file.originalname.split(".");
+    const fileType = currentFile[currentFile.length - 1];
 
-    // const params = {
-    //     Bucket: 'the-null-report',
-    //     Key: `${uuidv4()}.${fileType}`,
-    //     Body: req.file.buffer
-    // };
+    const params = {
+        Bucket: 'the-null-report',
+        Key: `${uuidv4()}.${fileType}`,
+        Body: req.file.buffer
+    };
 
-    // s3.upload(params, (err, data) => {
-    //     if (err) {
-    //         res.status(500).json(err)
-    //     } else {
-    //         res.status(200).send(data);
-    //     }
-    // });
+    s3.upload(params, (err, data) => {
+        if (err) {
+            res.status(500).json(err)
+        } else {
+            res.status(200).send(data);
+        }
+    });
 
 });
 
